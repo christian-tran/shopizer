@@ -34,7 +34,8 @@ WebDriver driver;
 		driver.get("http://192.168.102.67:8080/shopizer/shop");
 		driver.manage().window().maximize();
 		
-		PageAcceuil page_index = PageFactory.initElements(driver, PageAcceuil.class);
+		PageAcceuil page_accueil = PageFactory.initElements(driver, PageAcceuil.class);
+		page_accueil.optionTables.click();
 	}
 
 }
