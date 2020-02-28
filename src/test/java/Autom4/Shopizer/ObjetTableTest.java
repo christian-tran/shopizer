@@ -5,10 +5,12 @@ import java.util.concurrent.TimeUnit;
 import Autom4.Shopizer.OutilTechnique;
 
 import Autom4.Shopizer.ENavigateur;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class ObjetTableTest {
 	
@@ -32,7 +34,7 @@ WebDriver driver;
 		driver.get("http://192.168.102.67:8080/shopizer/shop");
 		driver.manage().window().maximize();
 		
-		
+		PageAcceuil page_index = PageFactory.initElements(driver, PageAcceuil.class);
 	}
 
 }
