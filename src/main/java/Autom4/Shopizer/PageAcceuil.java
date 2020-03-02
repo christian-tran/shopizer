@@ -28,4 +28,7 @@ public class PageAcceuil extends MenuHorizontal {
 	
 	@FindBy (id="400")
 	WebElement coffeeTableAccacia;
+	
+	@FindBy (xpath="//div[@class='slider-area']//img")
+	WebElement imglink;
 }
