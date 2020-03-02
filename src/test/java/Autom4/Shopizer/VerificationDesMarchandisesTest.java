@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import org.apache.log4j.PropertyConfigurator;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,11 @@ public class VerificationDesMarchandisesTest {
 	public void setup() {
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	}
+	
+	@After
+	public void tearDown() {
+		driver.quit();
 	}
 	
 	@Test
@@ -83,7 +89,7 @@ public class VerificationDesMarchandisesTest {
 			
 		// Product With Options
 		assertEquals("US$99.99",pageAccueil.productWithOptionsPrice.getText());
-		logger.info("Le prix actuel de l'élément 'Product With Options' est bien :"+pageAccueil.productWithOptionsPrice.getText());
+		logger.info("Le prix actuel de l'élément 'Product With Options' est bien : "+pageAccueil.productWithOptionsPrice.getText());
 			
 		// Asian Rosewood Console
 		assertEquals("US$499.99",pageAccueil.asianRosewoodConsolePrice.getText());
