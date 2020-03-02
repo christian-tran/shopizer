@@ -31,7 +31,7 @@ WebDriver driver;
 	@After
 	public void tearDown()
 	{
-		//driver.quit();
+		driver.quit();
 	}
 	
 	@Test
@@ -39,13 +39,12 @@ WebDriver driver;
 	{
 		driver.get("http://192.168.102.67:8080/shopizer/shop");
 		driver.manage().window().maximize();
-		WebDriverWait wait=new WebDriverWait(driver, 20);
+		WebDriverWait wait=new WebDriverWait(driver, 5);
 		
 		PageAcceuil page_accueil = PageFactory.initElements(driver, PageAcceuil.class);
-		wait.until(ExpectedConditions.visibilityOf(page_accueil.imglink));
+		wait.until(ExpectedConditions.visibilityOf(page_accueil.optionTables));
 		// Test 1
-		assertTrue(page_accueil.imglink.isDisplayed());
-		
+		assertEquals("https://s3.ca-central-1.amazonaws.com/shopizer-lightsail/files/DEFAULT/banner.jpg",page_accueil.imglink.getAttribute("src"));
 		
 		page_accueil.optionTables.click();
 		PageTable page_table = PageFactory.initElements(driver, PageTable.class);
@@ -62,6 +61,8 @@ WebDriver driver;
 		assertEquals("Le prix de la table Edge Console est erroné","US$749.99",page_table.itemEdgeConsolePrix.getText());
 		assertTrue(page_table.itemCoffeeTableAccacia.isDisplayed());
 		assertEquals("Le prix de la table Coffee Table Accacia est erroné","US$399.99",page_table.itemCoffeeTableAccaciaPrix.getText());
+		
+			
 		Thread.sleep(5000);
 		
 	}

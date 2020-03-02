@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class PageTable {
 	
-	@FindBy (xpath="//ol//a[text()='Tables')")
+	@FindBy (xpath="//ol//a[text()='Tables']")
 	WebElement breadcrumbTable;
 	
 	@FindBy (xpath="//h3[text()='Collection']")
@@ -34,5 +34,8 @@ public class PageTable {
 	
 	@FindBy (xpath="//div[@id='productsContainer']//div[@item-name='Coffee table Accacia']//span")
 	WebElement itemCoffeeTableAccaciaPrix;
+	
+	@FindBy (xpath="//div[@id='productsContainer']//div[@item-name='Coffee table Accacia']//span")
+	WebElement FilterDefault;
 
 }
