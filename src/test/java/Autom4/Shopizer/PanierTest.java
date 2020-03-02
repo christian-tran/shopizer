@@ -21,6 +21,10 @@ public class PanierTest {
 	
 	@Test
 	public void testPanierShopizer() {
+		
+		PageAcceuil pageAccueil = new PageAcceuil();
+		
+		
 	
 	}
 	
