@@ -35,7 +35,10 @@ public class PageTable {
 	@FindBy (xpath="//div[@id='productsContainer']//div[@item-name='Coffee table Accacia']//span")
 	WebElement itemCoffeeTableAccaciaPrix;
 	
-	@FindBy (xpath="//div[@id='productsContainer']//div[@item-name='Coffee table Accacia']//span")
+	@FindBy (xpath="//a[contains(.,'DEFAULT')]")
 	WebElement FilterDefault;
+	
+	@FindBy (xpath="//a[contains(.,'Asian Wood')]")
+	WebElement FilterAsianWood;
 
 }

@@ -62,6 +62,19 @@ WebDriver driver;
 		assertTrue(page_table.itemCoffeeTableAccacia.isDisplayed());
 		assertEquals("Le prix de la table Coffee Table Accacia est erroné","US$399.99",page_table.itemCoffeeTableAccaciaPrix.getText());
 		
+		// Test 4
+		page_table.FilterDefault.click();
+		assertTrue(driver.findElements(By.xpath("//div[@id='productsContainer']//div[@item-name='Natural root console']")).size()<1);
+		assertTrue(page_table.itemAsianRosewoodConsole.isDisplayed());
+		assertTrue(page_table.itemEdgeConsole.isDisplayed());
+		assertTrue(driver.findElements(By.xpath("//div[@id='productsContainer']//div[@item-name='Coffee table Accacia']")).size()<1);
+		
+		// Test 5
+		page_table.FilterAsianWood.click();
+		assertTrue(driver.findElements(By.xpath("//div[@id='productsContainer']//div[@item-name='Natural root console']")).size()<1);
+		assertTrue(driver.findElements(By.xpath("//div[@id='productsContainer']//div[@item-name='Asian rosewood console']")).size()<1);
+		assertTrue(driver.findElements(By.xpath("//div[@id='productsContainer']//div[@item-name='Edge console']")).size()<1);
+		assertTrue(page_table.itemCoffeeTableAccacia.isDisplayed());
 			
 		Thread.sleep(5000);
 		
