@@ -21,13 +21,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PanierTest {
 	
-	WebDriver driver =  new ChromeDriver();
+	WebDriver driver;
 	String url= "http://192.168.102.67:8080/shopizer";
+	private String BROWSER = System.getProperty("navigateur");
 
 	@Before
 	public void setup() {
+		driver = OutilTechnique.choisirNavigateur(BROWSER);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(url);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 	}
 	
 	@After

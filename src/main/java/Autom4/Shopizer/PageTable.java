@@ -40,5 +40,8 @@ public class PageTable {
 	
 	@FindBy (xpath="//a[contains(.,'Asian Wood')]")
 	WebElement FilterAsianWood;
+	
+	@FindBy (xpath="//a[contains(.,'Roots')]")
+	WebElement FilterRoots;
 
 }
