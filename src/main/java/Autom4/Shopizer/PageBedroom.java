@@ -40,9 +40,20 @@ public class PageBedroom {
 	
 	public static PagePanier clickOnPaiement(WebDriver driver, String browser) throws InterruptedException {
 		Actions act = new Actions(driver);
-		act.moveToElement(boutonPanier).click().build().perform();
-		if (browser == "chrome") {Thread.sleep(1000);}
-		boutonPaiement.click();
+		act.moveToElement(boutonPanier).build().perform();
+		Thread.sleep(2000);
+		act.click(boutonPaiement).build().perform();
+		if (browser.equalsIgnoreCase("chrome")) {
+			act.moveToElement(boutonPanier).build().perform();
+			Thread.sleep(2000);
+			act.click(boutonPaiement).build().perform();
+		}
+		if (browser.equalsIgnoreCase("firefox")) {
+			act.moveToElement(boutonPanier).build().perform();
+			boutonPaiement.click();
+
+		}
+		//boutonPaiement.click();
 		return PageFactory.initElements(driver, PagePanier.class);
 	}
 }
