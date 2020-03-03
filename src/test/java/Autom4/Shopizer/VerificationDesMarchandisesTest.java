@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +18,7 @@ public class VerificationDesMarchandisesTest {
 
 	WebDriver driver;
 	String url= "http://192.168.102.67:8080/shopizer";
-	private String BROWSER = System.getProperty("navigateur");
+	private String BROWSER = "firefox";//System.getProperty("navigateur");
 
 	@Before
 	public void setup() {
@@ -35,7 +34,7 @@ public class VerificationDesMarchandisesTest {
 	
 	@Test
 	public void testPanierShopizer() {
-		PropertyConfigurator.configure("log4j.properties");
+	//	PropertyConfigurator.configure("log4j.properties");
 
 		PageAcceuil pageAccueil = PageFactory.initElements(driver, PageAcceuil.class);
 	

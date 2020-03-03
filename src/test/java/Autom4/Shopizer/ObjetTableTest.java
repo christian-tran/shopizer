@@ -4,10 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-
-import Autom4.Shopizer.OutilTechnique;
-
-import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,7 +19,7 @@ public class ObjetTableTest {
 Logger logger = Logger.getLogger("ObjetTableTest");	
 WebDriver driver;
 String url= "http://192.168.102.67:8080/shopizer";
-private String BROWSER = System.getProperty("navigateur");
+private String BROWSER = "firefox";//System.getProperty("navigateur");
 	
 	@Before
 	public void setup() {
@@ -42,7 +38,6 @@ private String BROWSER = System.getProperty("navigateur");
 	@Test
 	public void TableTest() throws InterruptedException
 	{
-		PropertyConfigurator.configure("log4j.properties");
 		WebDriverWait wait=new WebDriverWait(driver, 5);
 		
 		PageAcceuil page_accueil = PageFactory.initElements(driver, PageAcceuil.class);
@@ -67,7 +62,7 @@ private String BROWSER = System.getProperty("navigateur");
 		assertEquals("Le prix de la table Edge Console est erroné","US$749.99",page_table.itemEdgeConsolePrix.getText());
 		assertTrue(page_table.itemCoffeeTableAccacia.isDisplayed());
 		assertEquals("Le prix de la table Coffee Table Accacia est erroné","US$399.99",page_table.itemCoffeeTableAccaciaPrix.getText());
-		logger.info("Tous les objets sont affichés sur la pageet ont le bon prix");
+		logger.info("Tous les objets sont affichés sur la page et ont le bon prix");
 		
 		// Test 4
 		Thread.sleep(1000);

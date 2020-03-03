@@ -23,7 +23,7 @@ public class PanierTest {
 	
 	WebDriver driver;
 	String url= "http://192.168.102.67:8080/shopizer";
-	private String BROWSER = System.getProperty("navigateur");
+	String BROWSER = "firefox"; //System.getProperty("navigateur");
 
 	@Before
 	public void setup() {
@@ -35,7 +35,7 @@ public class PanierTest {
 	
 	@After
 	public void tearDown() {
-		//driver.quit();
+		driver.quit();
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class PanierTest {
 	assertEquals(page_bedroom.arboresence.getText(),"Page d'accueil Bedroom");
 	page_bedroom.addToCart();
 	assertEquals(page_bedroom.nombre_article.getText(),"Panier d'achat (2)");
-	PagePanier page_panier = page_bedroom.clickOnPaiement(driver);
+	PagePanier page_panier = page_bedroom.clickOnPaiement(driver, BROWSER);
 	wait.until(ExpectedConditions.visibilityOf(page_panier.recap));
 	assertEquals(page_panier.recap.getText(),"Revoir votre commande");
 	assertEquals(page_panier.article1.getText(),"Compact night table");

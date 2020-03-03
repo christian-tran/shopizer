@@ -38,11 +38,11 @@ public class PageBedroom {
 		
 }
 	
-	public static PagePanier clickOnPaiement(WebDriver driver) throws InterruptedException {
+	public static PagePanier clickOnPaiement(WebDriver driver, String browser) throws InterruptedException {
 		Actions act = new Actions(driver);
-		act.moveToElement(boutonPanier).perform();
-		Thread.sleep(2000);
-		act.click(boutonPaiement).perform();
+		act.moveToElement(boutonPanier).click().build().perform();
+		if (browser == "chrome") {Thread.sleep(1000);}
+		boutonPaiement.click();
 		return PageFactory.initElements(driver, PagePanier.class);
 	}
 }
