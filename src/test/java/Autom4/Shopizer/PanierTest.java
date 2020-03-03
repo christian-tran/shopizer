@@ -23,7 +23,7 @@ public class PanierTest {
 	
 	WebDriver driver;
 	String url= "http://192.168.102.67:8080/shopizer";
-	String BROWSER = "firefox"; //System.getProperty("navigateur");
+	String BROWSER = "chrome"; //System.getProperty("navigateur");
 
 	@Before
 	public void setup() {

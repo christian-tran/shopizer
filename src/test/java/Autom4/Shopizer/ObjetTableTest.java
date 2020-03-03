@@ -19,7 +19,7 @@ public class ObjetTableTest {
 Logger logger = Logger.getLogger("ObjetTableTest");	
 WebDriver driver;
 String url= "http://192.168.102.67:8080/shopizer";
-private String BROWSER = "firefox";//System.getProperty("navigateur");
+private String BROWSER = "chrome";//System.getProperty("navigateur");
 	
 	@Before
 	public void setup() {
