@@ -30,7 +30,9 @@ public class PageBedroom {
 	WebElement arboresence;
 	
 	public void addToCart() throws InterruptedException {
+		Thread.sleep(1000);
 		nightTable.click();
+		Thread.sleep(1000);
 		woodStorage.click();
 		Thread.sleep(2000);
 		

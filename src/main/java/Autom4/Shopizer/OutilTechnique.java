@@ -18,21 +18,23 @@ public class OutilTechnique {
 static WebDriver driver ;
 	
 	static WebDriver choisirNavigateur(String nav) {
-		switch(nav) {
-		case "firefox":
+		if (nav == "firefox") {
 			System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe") ;
 			driver = new FirefoxDriver() ;
 			return driver;
-		case "chrome":
+		}
+		else if (nav == "chrome") {
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 			driver = new ChromeDriver();
 			return driver;
-		case "ie":
+		}
+		else if (nav == "ie") {
 			System.setProperty("webdriver.ie.driver", "src/test/resources/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			return driver;
-		default: return null;
-			
+		}
+		else {
+			return null;
 		}
 		
 	}

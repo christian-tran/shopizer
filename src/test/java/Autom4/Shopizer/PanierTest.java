@@ -30,15 +30,17 @@ public class PanierTest {
 		driver = OutilTechnique.choisirNavigateur(BROWSER);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(url);
+		driver.manage().window().maximize();
 	}
 	
 	@After
 	public void tearDown() {
-		driver.quit();
+		//driver.quit();
 	}
 	
 	@Test
 	public void testPanierShopizer() throws InterruptedException {	
+	WebDriverWait wait=new WebDriverWait(driver, 5);
 	
 	MenuHorizontal menu_horizontal = PageFactory.initElements(driver, MenuHorizontal.class);
 	PageBedroom page_bedroom = menu_horizontal.clickOnBedroomButton(driver);
@@ -46,6 +48,7 @@ public class PanierTest {
 	page_bedroom.addToCart();
 	assertEquals(page_bedroom.nombre_article.getText(),"Panier d'achat (2)");
 	PagePanier page_panier = page_bedroom.clickOnPaiement(driver);
+	wait.until(ExpectedConditions.visibilityOf(page_panier.recap));
 	assertEquals(page_panier.recap.getText(),"Revoir votre commande");
 	assertEquals(page_panier.article1.getText(),"Compact night table");
 	assertEquals(page_panier.article2.getText(),"Antique recycled wood storage");

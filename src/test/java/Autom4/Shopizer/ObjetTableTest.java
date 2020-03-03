@@ -7,8 +7,6 @@ import java.util.logging.Logger;
 
 import Autom4.Shopizer.OutilTechnique;
 
-import Autom4.Shopizer.ENavigateur;
-
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
 import org.junit.Assert;
@@ -22,7 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ObjetTableTest {
 
-	Logger logger = Logger.getLogger("ObjetTableTest");	
+Logger logger = Logger.getLogger("ObjetTableTest");	
 WebDriver driver;
 String url= "http://192.168.102.67:8080/shopizer";
 private String BROWSER = System.getProperty("navigateur");
@@ -72,6 +70,7 @@ private String BROWSER = System.getProperty("navigateur");
 		logger.info("Tous les objets sont affichés sur la pageet ont le bon prix");
 		
 		// Test 4
+		Thread.sleep(1000);
 		page_table.FilterDefault.click();
 		assertTrue(driver.findElements(By.xpath("//div[@id='productsContainer']//div[@item-name='Natural root console']")).size()<1);
 		assertTrue(page_table.itemAsianRosewoodConsole.isDisplayed());
